@@ -8,26 +8,19 @@ function App() {
   const [code, setCode] = useState(null)
 
   function getQueryParams(url) {
-    const queryParams = {};
-    const urlSearchParams = new URLSearchParams(url.split('?')[1]);
-    for (const [key, value] of urlSearchParams.entries()) {
-      queryParams[key] = value;
-    }
-    // return JSON.parse(urlSearchParams)
-    return queryParams;
+    const queryStringWithoutQuestionMark = url.substring(1);
+    return JSON.parse(decodeURIComponent(queryStringWithoutQuestionMark));
   }
 
   const handleConfirm = () => {
-    const queryParams = getQueryParams(document.location.href);
-    setCode(queryParams);
     setActive(true)
     setText('CONFIRMED')
-    setTimeout(()=> {
+    setTimeout(() => {
       setActive(false)
       setText('CONFIRM')
-    },5000)
+    }, 5000)
   }
-console.log(getQueryParams(document.location.href))
+  console.log(getQueryParams(window.location.search))
   return (
     <div className="page">
       <header></header>
