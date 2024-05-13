@@ -10,11 +10,11 @@ function App() {
   function getQueryParams(url) {
     const queryParams = {};
     const urlSearchParams = new URLSearchParams(url.split('?')[1]);
-    // for (const [key, value] of urlSearchParams.entries()) {
-    //   queryParams[key] = value;
-    // }
-    return JSON.parse(urlSearchParams)
-    // return queryParams;
+    for (const [key, value] of urlSearchParams.entries()) {
+      queryParams[key] = value;
+    }
+    // return JSON.parse(urlSearchParams)
+    return queryParams;
   }
 
   const handleConfirm = () => {
