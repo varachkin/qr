@@ -5,7 +5,8 @@ import { useState } from 'react';
 function App() {
   const [active, setActive] = useState(false);
   const [text, setText] = useState('CONFIRM')
-  const [code, setCode] = useState(null)
+  const [isLoading, setIsLoading] = useState(false)
+
 
   function getQueryParams(url) {
     const queryStringWithoutQuestionMark = url.substring(1);
@@ -13,11 +14,11 @@ function App() {
   }
 
   const handleConfirm = () => {
-    setActive(true)
-    setText('CONFIRMED')
+    setIsLoading(true)
     setTimeout(() => {
-      setActive(false)
-      setText('CONFIRM')
+      setActive(true)
+      setText('')
+      setIsLoading(false)
     }, 5000)
   }
   console.log(window.location.search)
@@ -30,9 +31,13 @@ function App() {
         <p className={`${active ? 'active' : ''}`}>
           <button
             className={`waves`}
-            onClick={handleConfirm}
+            onClick={active ? ()=>{} : handleConfirm}
           >
-            <span>{text}</span>
+            {isLoading ? <span className="loader"></span> : <span>{text}</span>}
+            {active &&
+            <div className="o-circle c-container__circle o-circle__sign--success">
+              <div className="o-circle__sign"></div>
+            </div>}
           </button>
         </p>
 
