@@ -20,7 +20,7 @@ function App() {
       setText('CONFIRM')
     }, 5000)
   }
-  console.log(getQueryParams(window.location.search))
+  console.log(window.location.search)
   return (
     <div className="page">
       <header></header>
