@@ -5,21 +5,21 @@ import { useState } from 'react';
 function App() {
   const [active, setActive] = useState(false);
   const [text, setText] = useState('CONFIRM')
-  const [title, setTitle] = useState('Confirm payment')
+  const [code, setCode] = useState(null)
 
   function getQueryParams(url) {
     const queryParams = {};
     const urlSearchParams = new URLSearchParams(url.split('?')[1]);
-    for (const [key, value] of urlSearchParams.entries()) {
-      queryParams[key] = value;
-    }
-    return queryParams;
+    // for (const [key, value] of urlSearchParams.entries()) {
+    //   queryParams[key] = value;
+    // }
+    return JSON.parse(urlSearchParams)
+    // return queryParams;
   }
 
-  const handleConfirm = (event) => {
-    event.preventDefault();
-    const queryParams = getQueryParams(event.target.href);
-    setTitle(JSON.parse(queryParams))
+  const handleConfirm = () => {
+    const queryParams = getQueryParams(document.location.href);
+    setCode(queryParams);
     setActive(true)
     setText('CONFIRMED')
     setTimeout(()=> {
@@ -27,13 +27,13 @@ function App() {
       setText('CONFIRM')
     },5000)
   }
-
+console.log(getQueryParams(document.location.href))
   return (
     <div className="page">
       <header></header>
       <main>
         <div className='logo-main'></div>
-        <p className='title'>{title}</p>
+        <p className='title'>Confirm payment</p>
         <p className={`${active ? 'active' : ''}`}>
           <button
             className={`waves`}
