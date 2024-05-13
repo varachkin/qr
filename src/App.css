@@ -37,7 +37,8 @@ main{
 .logo-main{
   height: 30%;
   width: 100%;
-  background: url(/public/hArtboard\ 1\ copy\ 26@2000x-8.png);
+  background: url(/public/vendinity-logo-white.png);
+
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -46,7 +47,7 @@ main{
 .logo-footer{
   height: 100%;
   width: 100%;
-  background: url(/public/vendinity-logo-white.png);
+  background: url(/public/hArtboard\ 1\ copy\ 26@2000x-8.png);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
