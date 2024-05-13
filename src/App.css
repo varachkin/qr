@@ -1,0 +1,174 @@
+@font-face {
+  font-family: 'Russo';
+  src: local('Russo'), url(../src/assets/fonts/RussoOne-Regular.ttf) format('truetype');
+}
+
+.page{
+  background-image: url(/public/bg-exa-img.jpeg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: Russo;
+  overflow: hidden;
+}
+
+header{
+  height: 10%;
+  /* background-color: aqua; */
+}
+
+main{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4rem;
+}
+
+.logo-main{
+  height: 30%;
+  width: 100%;
+  background: url(/public/hArtboard\ 1\ copy\ 26@2000x-8.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.logo-footer{
+  height: 100%;
+  width: 100%;
+  background: url(/public/vendinity-logo-white.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+main p{
+  color: azure;
+  text-align: center;
+  font-size: 3em;
+  padding: 3rem;
+  height: 30%;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+}
+.title{
+  box-sizing: border-box;
+  width: 100%;
+  height: 20%;
+  font-size: 200%;
+}
+
+
+.waves:active{
+  background: radial-gradient(circle at 10% 10%, #b97f00, #160f00);
+  
+}
+
+footer{
+  height: 30vh;
+  /* background-color: aqua; */
+}
+
+.waves {
+  /* background-color: orange; */
+  position: relative;
+  font-size: 30%;
+  /* padding: 2rem; */
+  width: 80%;
+  height: 80%;
+  /* width: 30%;
+  height: 30%; */
+  /* margin: 0.5rem 0; */
+  /* height: 5rem; */
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+  /*background: linear-gradient(90deg, #1B42A6, #223669);*/
+  background: radial-gradient(circle at 10% 10%, #ffaf02, #583d01);
+  color:black;
+  border: none;
+  /* border-radius: 0.5rem; */
+  box-shadow: 0px 30px 25px -18px rgba(5, 5, 5, 0.788);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  z-index: 2;
+
+}
+
+.waves span{
+  position: absolute;
+}
+
+.waves:before,
+.waves:after {
+  content: '';
+  display: block;
+  position: absolute;
+  height: 5rem;
+  aspect-ratio: 1/1;
+  left: calc();
+  border: 5px solid rgb(9, 255, 0);
+  border-radius: 50%;
+  opacity: 0;
+  z-index: 1;
+}
+
+.active .waves{
+  color: beige;
+  background: radial-gradient(circle at 10% 10%, #00d848, #015801);
+}
+.active .waves::before {
+  /* opacity: 0; */
+  animation: rippleStart 2s linear forwards;
+}
+
+.active .waves::after {
+  /* opacity: 0; */
+  animation: rippleStart 2s linear .28s forwards;
+}
+
+@keyframes rippleStart {
+  0% {
+      opacity: 0;
+      transform: scale(-1);
+      border: 1px solid #00d848;
+  }
+
+  25% {
+      transform: scale(2);
+      opacity: 0.2;
+      border: 2px solid #00d848;
+  }
+
+  50% {
+      transform: scale(4);
+      opacity: 0.15;
+      border: 3px solid #00d848;
+  }
+
+  75% {
+      transform: scale(6);
+      opacity: 0.075;
+  }
+
+  100% {
+      transform: scale(8);
+      opacity: 0;
+  }
+}
