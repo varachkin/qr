@@ -24,9 +24,11 @@ function App() {
   console.log(window.location.search)
   return (
     <div className="page">
-      <header></header>
-      <main>
+      <header>
         <div className='logo-main'></div>
+      </header>
+      <main>
+
         <p className='title'>Confirm payment</p>
         <p className={`${active ? 'active' : ''}`}>
           <button
