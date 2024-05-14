@@ -11,7 +11,9 @@ function App() {
 
   function getQueryParams(url) {
     const queryStringWithoutQuestionMark = url.substring(1);
-    return JSON.parse(decodeURIComponent(queryStringWithoutQuestionMark));
+    if(queryStringWithoutQuestionMark){
+      return JSON.parse(decodeURIComponent(queryStringWithoutQuestionMark));
+    }
   }
 
     const transactionAccept = (data) => {
@@ -29,7 +31,7 @@ function App() {
     });
   }
   console.log(getQueryParams(window.location.search))
-  
+
   const handleConfirm = () => {
     setIsLoading(true)
     transactionAccept(getQueryParams(window.location.search))
