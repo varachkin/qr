@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
+import axios from 'axios';
 
 function App() {
   const [active, setActive] = useState(false);
@@ -13,15 +14,38 @@ function App() {
     return JSON.parse(decodeURIComponent(queryStringWithoutQuestionMark));
   }
 
-  const handleConfirm = () => {
-    setIsLoading(true)
-    setTimeout(() => {
-      setActive(true)
-      setText('')
-      setIsLoading(false)
-    }, 5000)
+    const transactionAccept = (data) => {
+    return axios
+    .put('https://staging-payments.exa22.com/v1/Transaction/', {
+      ...data
+    })
+    .then(response => {
+      // console.log(`/payment/cancel?payment_type=${paymentType}&serial=${serial}`,response)
+      return response;
+    })
+    .catch(error => {
+      // console.log(`/payment/cancel?payment_type=${paymentType}&serial=${serial}`, error)
+      return error;
+    });
   }
   console.log(getQueryParams(window.location.search))
+  
+  const handleConfirm = () => {
+    setIsLoading(true)
+    transactionAccept(getQueryParams(window.location.search))
+    .then(response => {
+      console.log(response)
+      setActive(true)
+      setText('')
+    })
+    .catch(error => {
+      console.log(error)
+    })
+    .finally(()=> {
+      setIsLoading(false)
+    })
+  }
+  
   return (
     <div className="page">
       <header>
