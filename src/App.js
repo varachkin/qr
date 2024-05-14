@@ -21,7 +21,7 @@ function App() {
       setIsLoading(false)
     }, 5000)
   }
-  console.log(window.location.search)
+  console.log(getQueryParams(window.location.search))
   return (
     <div className="page">
       <header>
