@@ -272,7 +272,7 @@ footer {
     position: relative;
     top: 0%;
     width: 9.75%;
-    height: 53%;
+    height: 51%;
     aspect-ratio: 1/1;
     border-radius: 50% 50% 50% 0% / 10%;
     transform: translateX(130%) translateY(35%) rotate(45deg) scale(.11);
