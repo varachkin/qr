@@ -112,15 +112,10 @@ footer {
 }
 
 .waves {
-    /* background-color: orange; */
     position: relative;
     font-size: 30%;
-    /* padding: 2rem; */
-    height: 100%;
-    /* width: 30%;
-    height: 30%; */
-    /* margin: 0.5rem 0; */
-    /* height: 5rem; */
+    height: 30vw;
+    width: 30vw;
     aspect-ratio: 1/1;
     border-radius: 50%;
     /*background: linear-gradient(90deg, #1B42A6, #223669);*/
@@ -138,7 +133,6 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    aspect-ratio: 1/1;
     z-index: 2;
 
 }
