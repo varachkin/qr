@@ -7,7 +7,7 @@ function App() {
   const [active, setActive] = useState(false);
   const [text, setText] = useState('CONFIRM')
   const [isLoading, setIsLoading] = useState(false)
-
+  const [isError, setIsError] = useState(false)
 
   function getQueryParams(url) {
     const queryStringWithoutQuestionMark = url.substring(1);
@@ -36,15 +36,25 @@ function App() {
     setIsLoading(true)
     transactionAccept(getQueryParams(window.location.search))
       .then(response => {
-        console.log(response)
-        setActive(true)
-        setText('')
+        if(response.status === 200){
+          setActive(true)
+          setText('')
+        }else{
+          setIsError(true)
+          setText('ERROR')
+        }
+       
       })
       .catch(error => {
-        console.log(error)
+        setIsError(true)
+        setText('ERROR')
       })
       .finally(() => {
         setIsLoading(false)
+        setTimeout(()=> {
+          setText('CONFIRM')
+          setIsError(false)
+        }, 5000)
       })
   }
 
@@ -56,7 +66,7 @@ function App() {
       <main>
 
         <p className='title'>Confirm payment</p>
-        <div className={`${active ? 'active' : ''}`}>
+        <div className={`${active ? 'active' : ''} ${isError ? 'error' : ''}`}>
           <button
             className={`waves`}
             onClick={active ? () => { } : handleConfirm}

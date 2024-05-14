@@ -159,6 +159,10 @@ footer {
     color: beige;
     background: radial-gradient(circle at 10% 10%, #00d848, #015801);
 }
+.error .waves{
+  color: beige;
+  background: radial-gradient(circle at 10% 10%, #d80000, #580101);
+}
 
 .active .waves::before {
     /* opacity: 0; */
