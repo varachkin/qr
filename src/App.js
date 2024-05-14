@@ -11,43 +11,43 @@ function App() {
 
   function getQueryParams(url) {
     const queryStringWithoutQuestionMark = url.substring(1);
-    if(queryStringWithoutQuestionMark){
+    if (queryStringWithoutQuestionMark) {
       return JSON.parse(decodeURIComponent(queryStringWithoutQuestionMark));
     }
   }
 
-    const transactionAccept = (data) => {
+  const transactionAccept = (data) => {
     return axios
-    .put('https://staging-payments.exa22.com/v1/Transaction/', {
-      ...data
-    })
-    .then(response => {
-      // console.log(`/payment/cancel?payment_type=${paymentType}&serial=${serial}`,response)
-      return response;
-    })
-    .catch(error => {
-      // console.log(`/payment/cancel?payment_type=${paymentType}&serial=${serial}`, error)
-      return error;
-    });
+      .put('https://staging-payments.exa22.com/v1/Transaction/', {
+        ...data
+      })
+      .then(response => {
+        // console.log(`/payment/cancel?payment_type=${paymentType}&serial=${serial}`,response)
+        return response;
+      })
+      .catch(error => {
+        // console.log(`/payment/cancel?payment_type=${paymentType}&serial=${serial}`, error)
+        return error;
+      });
   }
   console.log(getQueryParams(window.location.search))
 
   const handleConfirm = () => {
     setIsLoading(true)
     transactionAccept(getQueryParams(window.location.search))
-    .then(response => {
-      console.log(response)
-      setActive(true)
-      setText('')
-    })
-    .catch(error => {
-      console.log(error)
-    })
-    .finally(()=> {
-      setIsLoading(false)
-    })
+      .then(response => {
+        console.log(response)
+        setActive(true)
+        setText('')
+      })
+      .catch(error => {
+        console.log(error)
+      })
+      .finally(() => {
+        setIsLoading(false)
+      })
   }
-  
+
   return (
     <div className="page">
       <header>
@@ -56,18 +56,18 @@ function App() {
       <main>
 
         <p className='title'>Confirm payment</p>
-        <p className={`${active ? 'active' : ''}`}>
+        <div className={`${active ? 'active' : ''}`}>
           <button
             className={`waves`}
-            onClick={active ? ()=>{} : handleConfirm}
+            onClick={active ? () => { } : handleConfirm}
           >
             {isLoading ? <span className="loader"></span> : <span>{text}</span>}
             {active &&
-            <div className="o-circle c-container__circle o-circle__sign--success">
-              <div className="o-circle__sign"></div>
-            </div>}
+              <div className="o-circle c-container__circle o-circle__sign--success">
+                <div className="o-circle__sign"></div>
+              </div>}
           </button>
-        </p>
+        </div>
 
       </main>
       <footer>

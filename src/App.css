@@ -79,7 +79,16 @@ main p {
     justify-content: center;
     margin: 0;
 }
-
+main > div{
+  color: azure;
+    text-align: center;
+    font-size: 3em;
+    padding: 3rem;
+    height: 30%;
+    aspect-ratio: 1/1;
+    margin: 0;
+    width: 100%;
+}
 .title {
     box-sizing: border-box;
     width: 100%;
@@ -136,6 +145,7 @@ footer {
 
 .waves span {
     position: absolute;
+    font-size: 4.6vw;
 }
 
 .waves:before,
@@ -256,15 +266,19 @@ footer {
 .o-circle__sign--success {
     position: relative;
     top: 0;
-    left: 0;
+    left: 46%;
+    flex: 1;
+    width: 100%;
+    height: 100%;
+    display: block;
     /*background: rgb(0, 204, 27);*/
 }
 
 .o-circle__sign--success .o-circle__sign {
     position: relative;
     top: 0%;
-    width: 10%;
-    height: 50%;
+    width: 9.75%;
+    height: 53%;
     aspect-ratio: 1/1;
     border-radius: 50% 50% 50% 0% / 10%;
     transform: translateX(130%) translateY(35%) rotate(45deg) scale(.11);
